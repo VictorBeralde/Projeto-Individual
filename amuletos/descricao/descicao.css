@@ -57,7 +57,7 @@ body{
 }
 
 .texto{
-    width: 90%;
+    width: 95%;
     display: flex;
 }
 
@@ -68,30 +68,6 @@ body{
     height: 350px;
     border: 1px solid white;
     border-radius: 10px;
-}
-
-.formulario{
-    margin-top: 3%;
-    margin-left: 10%;
-    display: flex;
-    border-radius: 10px;
-    border: 2px solid white;
-    width: 350px;
-    height: 350px;
-}
-
-.desc{
-    margin-top: 3%;
-    margin-left: 10%;
-    background-color: rgb(19, 17, 17);
-    display: flex;
-    border-radius: 5px;
-    border: 2px solid white;
-    border-radius: 10px;
-    width: 85%;
-    height: auto;
-    color: white;
-    flex-wrap: wrap;
 }
 
 .amuletos {
@@ -105,11 +81,6 @@ body{
     height: 200px;
 }
 
-.fala{
-    display: flex;
-    margin: 10px 10px 10px 10px;
-    font-size: large;
-}
 
 .imagem{
     margin: 10px;
@@ -127,6 +98,43 @@ body{
 
 .banner .texto .desc .abc{
     display: flex;
-    color: #ffffff;
-    
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.banner .texto .desc .abcd{
+    display: flex;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.principal {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3%;
+    margin-left: 10%;
+    background-color: rgb(19, 17, 17);
+    border-radius: 5px;
+    border: 2px solid white;
+    border-radius: 10px;
+    width: 85%;
+    height: auto;
+    color: white;
+    flex-wrap: wrap;
+}
+
+.conteudo {
+    display: flex;
+    flex-direction: row;
+}
+
+.fala{
+    display: flex;
+    flex-direction: column;
+    margin: 0px 10px 10px 10px;
+    font-size: large;
+    justify-content: center;
+    align-items: center;
 }

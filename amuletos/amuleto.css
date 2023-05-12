@@ -57,7 +57,7 @@ body{
 }
 
 .texto{
-    width: 90%;
+    width: 95%;
     display: flex;
 }
 
@@ -92,6 +92,10 @@ body{
     height: auto;
     color: white;
     flex-wrap: wrap;
+    justify-content: space-between;
+}
+.desc a{
+    text-decoration: none;
 }
 
 .amuletos {
