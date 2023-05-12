@@ -89,6 +89,10 @@ body{
     border: 2px solid white;
     border-radius: 10px;
     width: 40%;
-    height: 360px;
+    height: auto;
     color: white;
+}
+
+.desc .ponto{
+    margin: 10px 10px 10px 10px;
 }
