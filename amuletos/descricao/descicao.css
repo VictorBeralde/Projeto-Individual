@@ -136,3 +136,9 @@ body{
 .fala p{
     width: 80%;
 }
+
+.imagem3{
+    display: flex;
+    width: 100%;
+    margin-left: 40px;
+}
