@@ -59,6 +59,7 @@ body{
 .texto{
     width: 95%;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .banner .texto .imagem2{
@@ -66,26 +67,23 @@ body{
     display: flex;
     width: 350px;
     height: 350px;
-    border: 1px solid white;
     border-radius: 10px;
 }
 
-.amuletos {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    border-radius: 10px;
-    height: 200px;
-}
-
+/*Principal*/
 
 .imagem{
-    margin: 10px;
-    width: 120px;
-    height: 120px;
+    margin: auto;
+    width: 300px;
+    height: 300px;
     font-size: medium;
+}
+
+.imagem_amuleto{
+    display: flex;
+    flex-wrap: wrap;
+    width: 120px;
+    margin: auto;
 }
 
 .amuletos p{
@@ -126,6 +124,36 @@ body{
     width: 80%;
 }
 
+
+.melhor{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px 10px 10px 10px;
+    justify-content: space-around;
+    width: 80%;
+}
+
+.melhor_amuletos{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    height: 120px;
+    width: 120px;
+    justify-content: space-between;
+    margin: auto;
+    border-radius: 10px;
+}
+
+
+.melhor_amuletos p{
+    display: flex;
+    width: 100px;
+    margin: auto;
+    color: white;
+}
 .fala p{
     width: 80%;
 }
@@ -167,4 +195,15 @@ body{
 
 .comerciante{
     width: 54%;
+}
+
+
+.amuletos {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    height: 200px;
 }
