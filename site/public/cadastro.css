@@ -1,0 +1,124 @@
+*{
+    font-family: Arial;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+/*HEADER*/
+.header{
+    background-color: #000000;
+
+}
+
+.container{
+    display: flex;
+    width: 80%;
+}
+
+.imagem{
+    display: flex;
+    width: 250px;
+    margin-left: 40px;
+}
+
+.header .container{
+    justify-content: space-between;
+}
+
+.titulo{
+    margin-top: 30px;
+    color: #000000;
+    font-weight: 500;
+    margin-right: 50%;
+}
+
+.navbar{
+    display: flex;
+    width: 400px;   
+    align-items: center;
+    list-style: none;
+    justify-content: space-between;
+    margin-right: -250px;;
+}
+
+.navbar a, .navbar li{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/*BANNER*/
+.banner{
+    background-image: url('assets/promo_godmaster.png');
+    background-size: cover;
+    height: 750px;
+}
+
+.texto{
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formulario{
+    margin-top: 3%;
+    margin-left: 10%;
+    display: flex;
+    border-radius: 10px;
+    border: 2px solid white;
+    width: 350px;
+    height: 350px;
+}
+
+.desc{
+    margin-top: 3%;
+    margin-left: 50%;
+    background-color: rgb(19, 17, 17);
+    display: flex;
+    border-radius: 5px;
+    border: 2px solid white;
+    border-radius: 10px;
+    width: auto;
+    height: auto;
+    color: white;
+    
+}
+
+.desc .ponto{
+    margin: 10px 10px 10px 10px;
+}
+
+.ponto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.input-box{
+    display: flex;
+    flex-direction: column;
+    width: 250px;   
+
+}
+
+.input-box input{
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 15px;
+    border-radius: 2px;
+}
+
+.input-box span{
+    margin-top: 10px;
+}
+.input-box button{
+    margin-top: 10px;
+    background-color: white;
+    color: black;
+    outline: none;
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+<body>  
+    <div class="header">
+        <div class="container">
+            <img class="imagem" src="assets/hollow_knight_title_large_white.png" alt="">
+            <ul class="navbar">
+                <li ><a href="index.html">Inicio</a></li>
+                <li><a href="boss/homeBoss.html">Boss</a></li>
+                <li><a href="./amuletos/homeAmuleto.html">Amuletos</a></li>
+                <li><a href="">Colecionaveis</a></li>
+                <li>|</li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="">Cadastro</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="banner">
+        <div class="texto">
+            <div class="desc">
+            <div class="ponto">
+                <h2>Cadastre-se</h2>
+                <div class="input-box">
+                    <span>Nick:</span>
+                    <input id="nick" type="text" placeholder="Digite seu nick">
+                    <span>Email:</span>
+                    <input id="email" type="email" placeholder="Digite seu email">
+                    <span>Senha:</span>
+                    <input id="senha" type="password" placeholder="Digite sua senha">
+                    <span>Confirmar Senha:</span>
+                    <input id="confirmarSenha" type="password" placeholder="Confirmar senha">
+                    <button onclick="cadastrar()">Cadastrar</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script> 
+function cadastrar() {
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nickVar = nick.value;
+    var emailVar = email.value;
+    var senhaVar = senha.value;
+    var confirmacaoSenhaVar = confirmarSenha.value;
+
+    var nickBooleana = false;
+    var emailBooleana = false;
+    var senhaBooleana = false;
+
+    if(nickVar == ""){
+        alert("Preencha o campo nick!");
+    } else {
+        nickBooleana = true;
+    }
+
+
+    if(emailVar == ""){
+        alert("Preencha o campo email!");
+    } else {
+        emailBooleana = true;
+    }
+
+
+    if(senhaVar == ""){
+        alert("Preencha o campo senha!");
+
+    } else if(senhaVar != confirmacaoSenhaVar){
+        alert("Senhas incompatíveis!");
+    } else {
+        senhaBooleana = true;
+    }
+
+    if (nickBooleana && emailBooleana && senhaBooleana) {
+        fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            nickServer: nickVar,
+            emailServer: emailVar,
+            senhaServer: senhaVar
+        })
+    }).then(function (resposta) {
+
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+            cardErro.style.display = "block";
+
+            mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+            setTimeout(() => {
+                window.location = "login.html";
+            }, "2000")
+
+        } else {
+            throw ("Houve um erro ao tentar realizar o cadastro!");
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+    }
+
+}
+</script>
