@@ -15,7 +15,6 @@
                 <li ><a href="index.html">Inicio</a></li>
                 <li><a href="boss/homeBoss.html">Boss</a></li>
                 <li><a href="./amuletos/homeAmuleto.html">Amuletos</a></li>
-                <li><a href="">Colecionaveis</a></li>
                 <li>|</li>
                 <li><a href="login.html">Login</a></li>
                 <li><a href="">Cadastro</a></li>
@@ -109,7 +108,6 @@ function cadastrar() {
             setTimeout(() => {
                 window.location = "login.html";
             }, "2000")
-
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");
         }
@@ -118,5 +116,7 @@ function cadastrar() {
     });
     }
 
+    alert("Cadastro realizado com sucesso!");
+            window.location = "login.html";
 }
 </script>

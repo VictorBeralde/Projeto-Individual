@@ -20,4 +20,7 @@ router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
 
+router.post("/favoritar", function (req, res) {
+    usuarioController.favoritar(req, res);
+});
 module.exports = router;

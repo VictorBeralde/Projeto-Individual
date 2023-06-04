@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>  
+    <div class="header">
+        <div class="container">
+            <img class="imagem" src="assets/hollow_knight_title_large_white.png" alt="">
+            <ul class="navbar">
+                <li ><a href="index.html">Inicio</a></li>
+                <li><a href="boss/homeBoss.html">Boss</a></li>
+                <li><a href="amuletos/homeAmuleto.html">Amuletos</a></li>
+                <li>|</li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="banner">
+        <div class="texto">
+            <div class="desc">
+            <div class="ponto">
+                <h2>Login</h2>
+                <div class="input-box">
+                    <span>Email:</span>
+                    <input id="email" type="email" placeholder="Digite seu email">
+                    <span>Senha:</span>
+                    <input id="senha" type="password" placeholder="Digite sua senha">
+                    <button onclick="entrar()">Login</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script>
+
+    function entrar() {
+    var emailVar = email.value;
+    var senhaVar = senha.value;
+
+    if (emailVar == "" || senhaVar == "") {
+      alert("Preencha os campos!");
+      return false;
+    }
+
+    console.log("FORM LOGIN: ", emailVar);
+    console.log("FORM SENHA: ", senhaVar);
+
+    fetch("/usuarios/autenticar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!");
+
+        if (resposta.ok) {
+          console.log(resposta);
+
+          resposta.json().then((json) => {
+            console.log(json);
+            console.log(JSON.stringify(json));
+
+            sessionStorage.EMAIL_USUARIO = json.email;
+            sessionStorage.NOME_USUARIO = json.nick;
+            sessionStorage.ID_USUARIO = json.idJogador;
+            sessionStorage.IS_LOGGED = true;
+            alert("Login realizado com sucesso!");
+            setTimeout(function () {
+              window.location = "index.html";
+            }, 1000); // apenas para exibir o loading
+          });
+        } else {
+          console.log("Houve um erro ao tentar realizar o login!");
+          alert("Erro ao fazer login! Por favor verificar os campos!");
+          resposta.text().then((texto) => {
+            console.error(texto);
+          });
+        }
+      })
+      .catch(function (erro) {
+        console.log(erro);
+      });
+  }
+</script>

@@ -18,7 +18,7 @@ body{
     width: 80%;
 }
 
-.imagem2{
+.imagem{
     display: flex;
     width: 250px;
     margin-left: 40px;
@@ -51,27 +51,16 @@ body{
 
 /*BANNER*/
 .banner{
-    background-image: url('../assets/Promo_6.png');
+    background-image: url('assets/Grimm Troupe/Grimm_troupe_screen.png');
     background-size: cover;
-    height: auto;
+    height: 750px;
 }
 
 .texto{
-    width: 81%;
+    width: auto;
     display: flex;
+    align-items: center;
     justify-content: center;
-    flex-direction: column;
-    margin-left: 5%;
-
-}
-
-.banner .texto .imagem2{
-    margin: auto;
-    display: flex;
-    width: 350px;
-    height: 350px;
-    border: 1px solid white;
-    border-radius: 10px;
 }
 
 .formulario{
@@ -86,44 +75,50 @@ body{
 
 .desc{
     margin-top: 3%;
-    margin-bottom: 3%;
-    margin-left: 10%;
+    margin-left: 50%;
     background-color: rgb(19, 17, 17);
     display: flex;
     border-radius: 5px;
     border: 2px solid white;
     border-radius: 10px;
-    width: 85%;
+    width: auto;
     height: auto;
     color: white;
-    flex-wrap: wrap;
-}
-.desc a{
-    text-decoration: none;
+    
 }
 
-.amuletos {
+.desc .ponto{
+    margin: 10px 10px 10px 10px;
+}
+
+.ponto{
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
-    margin-left: 18px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    border: 1px solid white;
-    border-radius: 10px;
-    height: 200px;
+    align-items: center;
 }
 
-.imagem{
-    margin: 10px;
-    width: 120px;
-    height: 120px;
-}
 
-.amuletos p{
+.input-box{
     display: flex;
-    width: 100px;
-    margin: auto;
-    color: white;
+    flex-direction: column;
+    width: 250px;   
+
 }
 
+.input-box input{
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 15px;
+    border-radius: 2px;
+}
+
+.input-box span{
+    margin-top: 10px;
+}
+.input-box button{
+    margin-top: 10px;
+    background-color: white;
+    color: black;
+    outline: none;
+}

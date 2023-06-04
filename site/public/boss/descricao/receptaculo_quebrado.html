@@ -98,7 +98,13 @@
 
                                     Balão: Receptáculo Quebrado gera um inimigo Balão Infectado com 1 de vida em vez dos 15 habituais. Este ataque acontece a cada 4-5 segundos. Além disso, este ataque acontece independentemente das outras ações de Receptáculo Quebrado. O Balão Infectado normalmente aparece em algum lugar no ar e flutua em direção ao Cavaleiro para causar dano de contato. Se Receptáculo Quebrado pular em um balão enquanto ele está surgindo, ele o cancela. Há um máximo de 3 balões que podem estar vivos ao mesmo tempo e este ataque só começa depois que Receptáculo Quebrado atingir 420HP.
                                 </p>
+                        </div> 
+                        <div class="favorito">
+                           <h1>Favoritar</h1>   
+                           <div id="receptaculo" class="heart" onclick="favoritar()"></div>
+                           <div class="animation-heart"></div>
                         </div>
+                       
                     </div>
                     <div class="conteudo">
                         <div class="melhor">
@@ -157,3 +163,35 @@
 </body>
 
 </html>
+
+<script>
+
+    function favoritar(){
+        receptaculo.style.background = 'red';
+
+        fetch("/usuarios/favoritar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            idJogador: sessionStorage.ID_USUARIO,
+            idBoss: 1
+        })
+    }).then(function (resposta) {
+
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+        
+            mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+        } 
+        
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+    }
+
+</script>

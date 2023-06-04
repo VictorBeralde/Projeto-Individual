@@ -62,8 +62,14 @@
                                     Vômito: Mawlek Incubador dispara uma multidão de bolhas de infecção em um arco parabólico simultaneamente. Essas bolhas voam para qualquer lado da arena em que o Cavaleiro esteja no momento. Chocando Mawlek fica ocioso até que todas as bolhas tenham feito contato com o solo.
                                 </p>
                                
-                        </div>
+                        </div> 
+                        <div class="favorito">
+                            <h1>Favoritar</h1>   
+                            <div id="receptaculo" class="heart" onclick="favoritar()"></div>
+                            <div class="animation-heart"></div>
+                         </div>
                     </div>
+                    
                     <div class="conteudo">
                         <div class="melhor">
                             <p>
@@ -101,3 +107,36 @@
 </body>
 
 </html>
+
+
+<script>
+
+    function favoritar(){
+        receptaculo.style.background = 'red';
+
+        fetch("/usuarios/favoritar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            idJogador: sessionStorage.ID_USUARIO,
+            idBoss: 2
+        })
+    }).then(function (resposta) {
+
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+        
+            mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+        } 
+        
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+    }
+
+</script>

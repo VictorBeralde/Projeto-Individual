@@ -43,6 +43,7 @@
                                 sob o controle da Infecção.
                             </p>
                         </div>
+                        
                         <div class="amuletos">
                             <img src="../../assets/Character Promotional Art/boss_false_knight.png" class="imagem" 
                             alt="">
@@ -69,6 +70,11 @@
                                 </p>
                                 
                         </div>
+                        <div class="favorito">
+                            <h1>Favoritar</h1>   
+                            <div id="receptaculo" class="heart" onclick="favoritar()"></div>
+                            <div class="animation-heart"></div>
+                         </div>
                     </div>
                     <div class="conteudo">
                         <div class="melhor">
@@ -113,3 +119,36 @@
 </body>
 
 </html>
+
+
+<script>
+
+    function favoritar(){
+        receptaculo.style.background = 'red';
+
+        fetch("/usuarios/favoritar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            idJogador: sessionStorage.ID_USUARIO,
+            idBoss: 4
+        })
+    }).then(function (resposta) {
+
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+        
+            mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+        } 
+        
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+    }
+
+</script>
