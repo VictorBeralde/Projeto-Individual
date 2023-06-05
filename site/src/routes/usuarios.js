@@ -24,3 +24,8 @@ router.post("/favoritar", function (req, res) {
     usuarioController.favoritar(req, res);
 });
 module.exports = router;
+
+router.get("/favoritos/:idJogador", function (req, res) {
+    usuarioController.favoritos(req, res);
+});
+module.exports = router;
